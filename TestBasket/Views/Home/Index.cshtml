@@ -1,0 +1,40 @@
+﻿@model (List<Category> categories, List<Product> products)
+@{
+    ViewData["Title"] = "Home Page"; 
+}
+
+<div class="text-center"> 
+    <div align="left">
+        <h2>Categories</h2>
+        <ul>
+            @foreach (var category in Model.categories)
+            {
+                <li>
+                    <a href="@Url.Action("ProductsByCategory", "Home", new { category = category.IdCategory })">
+                        @category.StrCategory
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Products</h2>
+        @if (Model.Item2 != null && Model.Item2.Any())
+        {
+            <ul>
+                @foreach (var product in Model.Item2) 
+                {
+                    <li>
+                        <a href="/product/@product.IdProduct"> 
+                            <p> @product.StrProduct @product.Price @product.Curency </p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No products available for this category.</p>
+        }
+    </div>
+</div>
