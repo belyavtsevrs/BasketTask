@@ -7,8 +7,7 @@ namespace TestBasket.Controllers;
  
 public class HomeController : Controller
 { 
-    private readonly ProductService productService;
-    
+    private readonly ProductService productService; 
     public HomeController(ProductService productService)
     { 
         this.productService = productService;
@@ -24,7 +23,8 @@ public class HomeController : Controller
         var products = await productService.GetProductsAsync(category); 
         var categories = await productService.GetCategoriesAsync();  
         return View("Index", (categories, products)); 
-    }
+    } 
+    
     public async Task<IActionResult> Basket()
     {
         return View(new List<Category>());

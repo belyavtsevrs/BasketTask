@@ -2,26 +2,23 @@
 using TestBasket.Service;
 
 namespace TestBasket.Controllers;
-
-
-[Route("/product")]
+ 
+[Route("product")]
 public class ProductController : Controller
 {
-    private readonly ProductService _productService;
-
+    private readonly ProductService _productService; 
     public ProductController(ProductService productService)
     {
         _productService = productService;
-    }
-    
-    /*[HttpGet("details/{idProduct}")]
-    public Task<IActionResult> ProductDetails(string idProduct)
+    } 
+    public async Task<IActionResult> ProductInfo()
     {
-        var product = await _productService.get(idProduct);
-        if (product == null)
-        {
-            return NotFound();
-        }
-        return View(product);
-    }*/
+        return View(); 
+    }
+    [HttpGet("{idProduct}")]
+    public async Task<IActionResult> ProductInfo(string idProduct)
+    {
+        var product = await _productService.GetProductById(idProduct); 
+        return View("ProductInfo", product);
+    }
 }

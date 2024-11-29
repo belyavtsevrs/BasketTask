@@ -29,13 +29,22 @@ public class ProductService
 
         List<Product> categories = DataProcessor.Products(responseString);
         
-        if (categories == null || category == string.Empty)
+        if (string.IsNullOrEmpty(category))
         {
-            return categories;
+            return categories; 
         }
         return categories
             .Where(p => p.IdCategory == category)
-            .ToList();
-        return categories;
+            .ToList(); 
+    }
+
+    public async Task<Product> GetProductById(string productId)
+    { 
+        var responseString = await _dataFetch.GetProductsAsync();
+        List<Product> categories = DataProcessor.Products(responseString);
+        
+        return categories
+            .Where(x=>x.IdProduct == productId)
+            .FirstOrDefault();
     }
 }

@@ -95,3 +95,4 @@ C:\Users\Acer\RiderProjects\WebApplication1\TestBasket\obj\Debug\net9.0\refint\T
 C:\Users\Acer\RiderProjects\WebApplication1\TestBasket\obj\Debug\net9.0\TestBasket.pdb
 C:\Users\Acer\RiderProjects\WebApplication1\TestBasket\obj\Debug\net9.0\TestBasket.genruntimeconfig.cache
 C:\Users\Acer\RiderProjects\WebApplication1\TestBasket\obj\Debug\net9.0\ref\TestBasket.dll
+C:\Users\Acer\RiderProjects\WebApplication1\TestBasket\obj\Debug\net9.0\TestBasket.sourcelink.json

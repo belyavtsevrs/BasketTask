@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestBasket")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c2f4e027acb8fdf55703f3b3c86a170bd3db8e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestBasket")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestBasket")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
