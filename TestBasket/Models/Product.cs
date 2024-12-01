@@ -8,4 +8,6 @@ public class Product
     public List<string> SrtProductThumb { get; set; }
     public decimal Price { get; set; }
     public string Curency { get; set; }
+    
+    
 }

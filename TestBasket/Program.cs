@@ -1,4 +1,5 @@
 using TestBasket.Components;
+using TestBasket.repository;
 using TestBasket.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<DataFetch>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddSingleton<InMemoryBasketRepository>();
 
 var app = builder.Build();
 

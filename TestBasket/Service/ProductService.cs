@@ -2,16 +2,20 @@
 using System.Text.Json;
 using TestBasket.Components;
 using TestBasket.Models;
+using TestBasket.repository;
 
 namespace TestBasket.Service;
 
 public class ProductService
 {
     private readonly DataFetch _dataFetch;
+    
+    private readonly InMemoryBasketRepository _InMemoryBasketRepository;
 
-    public ProductService(DataFetch dataFetch)
+    public ProductService(DataFetch dataFetch,InMemoryBasketRepository inMemoryBasketRepository)
     {
         _dataFetch = dataFetch;
+        _InMemoryBasketRepository = inMemoryBasketRepository;
     }
 
     public async Task<List<Category>> GetCategoriesAsync()
@@ -46,5 +50,11 @@ public class ProductService
         return categories
             .Where(x=>x.IdProduct == productId)
             .FirstOrDefault();
+    }
+
+    public bool addProduct(Product product)
+    { 
+        _InMemoryBasketRepository.addProduct(product); 
+        return true;
     }
 }

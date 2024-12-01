@@ -15,4 +15,14 @@
     {
         <img src="@img" height="250px" width="250px"/>
     }*@
+    <form method="post" asp-action="AddProduct" asp-controller="Product">
+        <input type="hidden" name="StrProduct" value="@Model.StrProduct" />
+        <input type="hidden" name="Price" value="@Model.Price" />
+        <input type="hidden" name="Curency" value="@Model.Curency" />
+        @if (Model.SrtProductThumb.Count > 0)
+        {
+            <input type="hidden" name="SrtProductThumb" value="@Model.SrtProductThumb[0]" />
+        }
+        <button type="submit" class="btn btn-primary">Add to Basket</button>
+    </form>
 </div>

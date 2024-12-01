@@ -1,16 +1,19 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TestBasket.Models;
+using TestBasket.repository;
 using TestBasket.Service;
 
 namespace TestBasket.Controllers;
  
 public class HomeController : Controller
 { 
-    private readonly ProductService productService; 
-    public HomeController(ProductService productService)
+    private readonly ProductService productService;
+    private readonly InMemoryBasketRepository inMemoryBasketRepository;
+    public HomeController(ProductService productService,InMemoryBasketRepository inMemoryBasketRepository)
     { 
         this.productService = productService;
+        this.inMemoryBasketRepository = inMemoryBasketRepository;
     } 
     public async Task<IActionResult> Index()
     {
@@ -26,9 +29,10 @@ public class HomeController : Controller
     } 
     
     public async Task<IActionResult> Basket()
-    {
-        return View(new List<Category>());
-    } 
+    { 
+        List<Product> productsBasket = inMemoryBasketRepository.findAllProducts(); 
+        return View(productsBasket);
+    }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

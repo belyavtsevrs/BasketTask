@@ -1,6 +1,19 @@
-﻿@{
+﻿@model List<Product>
+@{
     ViewData["Basket"] = "Privacy Policy";
 }
 <h1>@ViewData["Basket"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>@product.StrProduct / @product.Price</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No products in the basket.</p>
+}
